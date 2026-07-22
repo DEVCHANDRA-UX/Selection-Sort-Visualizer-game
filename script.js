@@ -33,3 +33,35 @@ let speed = 500;
 speedRange.addEventListener("input",() => {
     speed = parseInt(speedRange.value);
 });
+
+// ----------------------------
+// Utility Delay Function
+// ----------------------------
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// ----------------------------
+// Generate Random Array
+// ----------------------------
+
+function generateArray(size = 15) {
+
+    array = [];
+
+    for (let i = 0; i < size; i++) {
+        array.push(
+            Math.floor(Math.random() * 90) + 10
+        );
+    }
+
+    originalArray = [array];
+
+    resetStats();
+
+    renderArray();
+
+    statusText.textContent =
+        "New random array generated.";
+}
